@@ -13,6 +13,9 @@ abstract class TaskDao() {
     @Query("SELECT * FROM `tasks-table` ORDER BY `tasks-id` DESC")
     abstract fun getAllTasks(): Flow<List<Task>>
 
+    @Query("SELECT * FROM `tasks-table` WHERE `tasks-id`=:id")
+    abstract fun getTaskById(id: Long): Flow<Task>
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     abstract suspend fun addTask(task: Task)
 

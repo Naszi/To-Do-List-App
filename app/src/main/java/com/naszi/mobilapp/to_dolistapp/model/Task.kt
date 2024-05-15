@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 data class Task(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "tasks-id")
-    val id: Int = 0,
+    val id: Long = 0,
     @ColumnInfo(name = "tasks-title")
     val title: String,
     @ColumnInfo(name = "tasks-description")
