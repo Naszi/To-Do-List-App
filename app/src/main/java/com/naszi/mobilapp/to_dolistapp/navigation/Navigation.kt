@@ -10,6 +10,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.navArgument
 import com.naszi.mobilapp.to_dolistapp.ui.AddEditDetailView
 import com.naszi.mobilapp.to_dolistapp.ui.HomeView
+import com.naszi.mobilapp.to_dolistapp.ui.login.LoginScreen
+import com.naszi.mobilapp.to_dolistapp.ui.login.SignUpScreen
 import com.naszi.mobilapp.to_dolistapp.viewmodel.MainViewModel
 
 @Composable
@@ -17,7 +19,7 @@ fun Navigation(
     viewModel: MainViewModel = viewModel(),
     navController: NavHostController = rememberNavController()
 ) {
-    NavHost(navController = navController, startDestination = Screen.HomeScreen.route) {
+    NavHost(navController = navController, startDestination = Screen.LoginScreen.route) {
         composable(Screen.HomeScreen.route) {
             HomeView(viewModel, navController)
         }
@@ -33,6 +35,14 @@ fun Navigation(
         ) {entry ->
             val id = if (entry.arguments != null) entry.arguments!!.getLong("id") else 0L
             AddEditDetailView(id = id, viewModel = viewModel, navController = navController)
+        }
+        composable(Screen.SignupScreen.route) {
+            SignUpScreen(
+                onNavigateToLogin = { navController.navigate(Screen.LoginScreen.route) }
+            )
+        }
+        composable(Screen.LoginScreen.route) {
+            LoginScreen(onNavigateToSignUp = { navController.navigate(Screen.SignupScreen.route) })
         }
     }
 }

@@ -61,6 +61,8 @@ dependencies {
 
     // Navigation
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.runtime.livedata)
 
     // Room
     implementation(libs.androidx.room.runtime)
@@ -68,7 +70,7 @@ dependencies {
     kapt(libs.androidx.room.compiler)
 
     // Firebase
-    implementation(libs.firebase.bom)
+    implementation(platform(libs.firebase.bom))
     //noinspection UseTomlInstead
     implementation("com.google.firebase:firebase-auth")
     //noinspection UseTomlInstead
