@@ -22,7 +22,7 @@ fun Navigation(
             HomeView(viewModel, navController)
         }
         composable(
-            Screen.AddScreen.route + "/id",
+            Screen.AddScreen.route + "/{id}",
             arguments = listOf(
                 navArgument(name = "id") {
                     type = NavType.LongType
