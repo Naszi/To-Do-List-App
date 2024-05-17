@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.kotlin.kapt)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -65,6 +66,15 @@ dependencies {
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
     kapt(libs.androidx.room.compiler)
+
+    // Firebase
+    implementation(libs.firebase.bom)
+    //noinspection UseTomlInstead
+    implementation("com.google.firebase:firebase-auth")
+    //noinspection UseTomlInstead
+    implementation("com.google.firebase:firebase-firestore")
+    //noinspection UseTomlInstead
+    implementation("com.google.firebase:firebase-analytics")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

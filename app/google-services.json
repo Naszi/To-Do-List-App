@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "385852572597",
+    "project_id": "to-do-list-app-a60b7",
+    "storage_bucket": "to-do-list-app-a60b7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:385852572597:android:6b5d6a8251b72f5cf3cffc",
+        "android_client_info": {
+          "package_name": "com.naszi.mobilapp.to_dolistapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEg0yq4XUB6h8RUq9jHjhcrhzt6Ue_DVM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
