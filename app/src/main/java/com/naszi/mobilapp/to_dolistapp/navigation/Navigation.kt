@@ -12,11 +12,13 @@ import com.naszi.mobilapp.to_dolistapp.ui.AddEditDetailView
 import com.naszi.mobilapp.to_dolistapp.ui.HomeView
 import com.naszi.mobilapp.to_dolistapp.ui.login.LoginScreen
 import com.naszi.mobilapp.to_dolistapp.ui.login.SignUpScreen
+import com.naszi.mobilapp.to_dolistapp.viewmodel.AuthViewModel
 import com.naszi.mobilapp.to_dolistapp.viewmodel.MainViewModel
 
 @Composable
 fun Navigation(
     viewModel: MainViewModel = viewModel(),
+    authViewModel: AuthViewModel,
     navController: NavHostController = rememberNavController()
 ) {
     NavHost(navController = navController, startDestination = Screen.LoginScreen.route) {
@@ -38,11 +40,17 @@ fun Navigation(
         }
         composable(Screen.SignupScreen.route) {
             SignUpScreen(
+                authViewModel = authViewModel,
                 onNavigateToLogin = { navController.navigate(Screen.LoginScreen.route) }
             )
         }
         composable(Screen.LoginScreen.route) {
-            LoginScreen(onNavigateToSignUp = { navController.navigate(Screen.SignupScreen.route) })
+            LoginScreen(
+                authViewModel = authViewModel,
+                onNavigateToSignUp = { navController.navigate(Screen.SignupScreen.route) }
+            ) {
+                navController.navigate(Screen.HomeScreen.route)
+            }
         }
     }
 }

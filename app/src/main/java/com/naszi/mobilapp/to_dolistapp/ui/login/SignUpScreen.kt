@@ -19,12 +19,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.naszi.mobilapp.to_dolistapp.viewmodel.AuthViewModel
 
 @Composable
 fun SignUpScreen(
+    authViewModel: AuthViewModel,
     onNavigateToLogin: () -> Unit
 ) {
     var email by remember { mutableStateOf("") }
@@ -74,10 +74,17 @@ fun SignUpScreen(
         )
         Button(
             onClick = {
+                authViewModel.signUp(
+                    email = email,
+                    password = password,
+                    firstName = firstName,
+                    lastName = lastName
+                )
                 email = ""
                 password = ""
                 firstName = ""
                 lastName = ""
+                onNavigateToLogin()
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -92,9 +99,3 @@ fun SignUpScreen(
         )
     }
 }
-
-//@Preview(showBackground = true)
-//@Composable
-//fun SignupPreview() {
-//    SignUpScreen()
-//}
